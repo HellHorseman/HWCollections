@@ -5,14 +5,11 @@ public class Main {
     private static final List<String> words = new ArrayList<>(List.of("We", "don`t", "need", "no", "education", "We", "don`t", "need", "no", "thought", "control"));
     private static final List<String> strings = new ArrayList<>(List.of("один", "два", "два", "три", "три", "три"));
 
-    public List<Integer> getNums() {
-        return nums;
-    }
-
     public static void main(String[] args) {
         task1();
         task2();
         task3();
+        task4();
     }
 
     public static void task1() {
@@ -48,9 +45,25 @@ public class Main {
                 repeat.add(word);
             }
         }
-            System.out.println("Unique " + unique);
-            System.out.println("Repeats " + repeat);
-            System.out.println();
+        System.out.println("Unique " + unique);
+        System.out.println("Repeats " + repeat);
+        System.out.println();
+    }
+
+    public static void task4() {
+        System.out.println("Задание 4");
+        Map<String, Integer> stringsMap = new LinkedHashMap<>();
+        for (String str : strings) {
+            if (!stringsMap.containsKey(str)) {
+                stringsMap.put(str, 1);
+            } else {
+                int counter = stringsMap.get(str);
+                counter++;
+                stringsMap.put(str, counter);
+            }
+        }
+        List<Integer> count = new ArrayList<>(stringsMap.values());
+        System.out.println(count);
     }
 
 }
